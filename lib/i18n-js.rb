@@ -119,6 +119,7 @@ module SimplesIdeias
     def save(translations, file)
       file = Rails.root.join(file)
       FileUtils.mkdir_p File.dirname(file)
+      translations = Hash[translations.sort]
 
       File.open(file, "w+") do |f|
         f << %(var I18n = I18n || {};\n)
